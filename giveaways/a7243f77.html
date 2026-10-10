@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Giveaway</title>
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#1e1f22;--panel:#2b2d31;--panel2:#313338;--line:#3f4147;--text:#dbdee1;--muted:#949ba4;--strong:#f2f3f5;--ok:#57f287;--bad:#ed4245;--gold:#f0b232;--accent:#5865f2}
+body{background:var(--bg);color:var(--text);font-family:'gg sans','Noto Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.45}
+.wrap{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+.hero{background:var(--panel);border-radius:12px;border-top:4px solid var(--accent);padding:24px;margin-bottom:16px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.4px}
+.badge.active{background:rgba(87,242,135,.15);color:var(--ok)}
+.badge.ended{background:rgba(240,178,50,.15);color:var(--gold)}
+.badge.cancelled{background:rgba(237,66,69,.15);color:var(--bad)}
+h1{font-size:28px;color:var(--strong);margin:8px 0 6px;overflow-wrap:anywhere}
+.desc{color:var(--text);white-space:pre-wrap;overflow-wrap:anywhere}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
+.meta div{background:var(--panel2);border-radius:8px;padding:10px 12px}
+.meta b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.meta span{color:var(--strong);font-size:16px;font-variant-numeric:tabular-nums}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media (max-width:640px){.cols{grid-template-columns:1fr}h1{font-size:22px}}
+.card{background:var(--panel);border-radius:12px;padding:18px}
+.card h2{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:10px}
+.card ul{list-style:none}
+.card li{padding:4px 0;border-bottom:1px solid var(--line)}
+.card li:last-child{border-bottom:0}
+.winners{display:flex;flex-wrap:wrap;gap:10px}
+.winner{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--gold);border-radius:999px;padding:6px 14px 6px 6px}
+.winner img,.row img{width:32px;height:32px;border-radius:50%;background:var(--panel2);flex-shrink:0}
+.winner small{color:var(--muted)}
+.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.toolbar input[type=search]{flex:1;min-width:180px;background:var(--panel2);border:1px solid var(--line);color:var(--strong);border-radius:8px;padding:9px 12px;font-size:14px}
+.toolbar input[type=search]:focus{outline:2px solid var(--accent);border-color:transparent}
+.toolbar label{color:var(--muted);font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid var(--line);cursor:pointer;user-select:none;white-space:nowrap}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr.win td{background:rgba(240,178,50,.08)}
+tr.out td{opacity:.55}
+.row{display:flex;align-items:center;gap:10px;min-width:0}
+.row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bd{color:var(--muted);font-size:12px}
+.reason{color:var(--bad);font-size:12px}
+.bar{height:4px;background:var(--panel2);border-radius:2px;margin-top:4px;min-width:60px}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
+.empty{color:var(--muted);text-align:center;padding:24px}
+.foot{color:var(--muted);font-size:12px;text-align:center;margin-top:20px}
+.hide-sm{}
+@media (max-width:640px){.hide-sm{display:none}}</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">🎉 Giveaway · <span id="guild"></span> <span id="status" class="badge"></span></div>
+      <h1 id="prize"></h1>
+      <p class="desc" id="desc"></p>
+      <div class="meta">
+        <div><b id="ends-label">Ends</b><span id="ends"></span></div>
+        <div><b>Winners</b><span id="wcount"></span></div>
+        <div><b>Participants</b><span id="pcount"></span></div>
+        <div><b>Valid entries</b><span id="tentries"></span></div>
+        <div><b>Hosted by</b><span id="host"></span></div>
+      </div>
+    </section>
+    <section class="card" style="margin-bottom:16px">
+      <h2>🏆 Winners</h2>
+      <div class="winners" id="winners"></div>
+    </section>
+    <div class="cols">
+      <section class="card"><h2>📋 Requirements</h2><ul id="reqs"></ul></section>
+      <section class="card"><h2>🎟️ How entries are earned</h2><ul id="rules"></ul></section>
+    </div>
+    <section class="card">
+      <h2>🎟️ Entries</h2>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search by name or ID…" aria-label="Search entries">
+        <label><input id="showout" type="checkbox" checked> Show not eligible</label>
+      </div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr>
+            <th class="num">#</th>
+            <th data-k="username">User</th>
+            <th data-k="invites" class="num hide-sm">Invites</th>
+            <th data-k="entries" class="num">Entries</th>
+            <th class="num">Share</th>
+          </tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+    <p class="foot" id="updated"></p>
+  </div>
+  <script type="application/json" id="data">{"id":"a7243f77","prize":"1 week key","description":null,"status":"active","guildName":"exyetnalr","hostName":"kylorrr","createdAt":1791638072334,"endsAt":1791638372334,"endedAt":null,"winnerCount":1,"color":"#ff66cc","requirements":[],"rules":["1 entry for everyone","+10 entries per real invite","+5 entries with @max"],"winners":[],"entrants":[],"updatedAt":1791638072657}</script>
+  <script>
+var D = JSON.parse(document.getElementById('data').textContent);
+var $ = function (id) { return document.getElementById(id); };
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function fmt(ts) { return new Date(ts).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }); }
+function rel(ts) {
+  var diff = ts - Date.now(), abs = Math.abs(diff), units = [['day',864e5],['hour',36e5],['minute',6e4]];
+  for (var i = 0; i < units.length; i++) if (abs >= units[i][1]) {
+    var n = Math.round(abs / units[i][1]); var u = units[i][0] + (n > 1 ? 's' : '');
+    return diff > 0 ? 'in ' + n + ' ' + u : n + ' ' + u + ' ago';
+  }
+  return diff > 0 ? 'in less than a minute' : 'just now';
+}
+
+document.documentElement.style.setProperty('--accent', D.color);
+document.title = D.prize + ' – Giveaway';
+$('guild').textContent = D.guildName;
+$('status').textContent = D.status;
+$('status').className = 'badge ' + D.status;
+$('prize').textContent = D.prize;
+if (D.description) $('desc').textContent = D.description; else $('desc').remove();
+$('host').textContent = D.hostName;
+$('wcount').textContent = D.winnerCount;
+$('ends-label').textContent = D.status === 'active' ? 'Ends' : 'Ended';
+$('ends').textContent = fmt(D.endedAt || D.endsAt);
+$('ends').title = rel(D.endedAt || D.endsAt);
+
+var eligible = D.entrants.filter(function (e) { return e.eligible; });
+var totalEntries = eligible.reduce(function (s, e) { return s + e.entries; }, 0);
+$('pcount').textContent = D.entrants.length.toLocaleString();
+$('tentries').textContent = totalEntries.toLocaleString();
+
+function list(id, items, empty) {
+  $(id).innerHTML = items.length ? items.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') : '<li>' + esc(empty) + '</li>';
+}
+list('reqs', D.requirements, 'No requirements: everyone can enter');
+list('rules', D.rules, '1 entry each');
+
+if (D.winners.length) {
+  $('winners').innerHTML = D.winners.map(function (w) {
+    return '<div class="winner"><img src="' + esc(w.avatar) + '" alt="" loading="lazy"><div><strong>' + esc(w.username) + '</strong>' +
+      (w.reroll ? ' <small>(reroll)</small>' : '') + '</div></div>';
+  }).join('');
+} else {
+  $('winners').innerHTML = '<p class="bd">' + (D.status === 'active' ? 'Winners will appear here ' + rel(D.endsAt) + '.' : D.status === 'cancelled' ? 'This giveaway was cancelled.' : 'No valid entries: nobody won.') + '</p>';
+}
+
+var winnerIds = {}; D.winners.forEach(function (w) { winnerIds[w.userId] = true; });
+var sortKey = 'entries', sortDir = -1;
+
+function breakdown(e) {
+  var b = e.breakdown, parts = [];
+  if (b.base) parts.push(b.base + ' base');
+  if (b.inviteEntries) parts.push(b.inviteEntries + ' from ' + b.invites + ' invites');
+  if (b.booster) parts.push(b.booster + ' booster');
+  if (b.role) parts.push(b.role + ' role');
+  return parts.join(' + ') + (b.capped ? ' (capped)' : '');
+}
+
+function render() {
+  var q = $('search').value.trim().toLowerCase();
+  var showOut = $('showout').checked;
+  var rows = D.entrants.filter(function (e) {
+    return (showOut || e.eligible) && (!q || e.username.toLowerCase().indexOf(q) >= 0 || e.userId.indexOf(q) >= 0);
+  });
+  rows.sort(function (a, b) {
+    var x = sortKey === 'username' ? a.username.toLowerCase() : sortKey === 'invites' ? a.breakdown.invites : a.entries;
+    var y = sortKey === 'username' ? b.username.toLowerCase() : sortKey === 'invites' ? b.breakdown.invites : b.entries;
+    return (x < y ? -1 : x > y ? 1 : 0) * sortDir;
+  });
+  if (!rows.length) { $('rows').innerHTML = '<tr><td colspan="5" class="empty">No entries found</td></tr>'; return; }
+  $('rows').innerHTML = rows.map(function (e, i) {
+    var share = totalEntries && e.eligible ? e.entries / totalEntries * 100 : 0;
+    var cls = winnerIds[e.userId] ? 'win' : e.eligible ? '' : 'out';
+    return '<tr class="' + cls + '"><td class="num bd">' + (i + 1) + '</td>' +
+      '<td><div class="row"><img src="' + esc(e.avatar) + '" alt="" loading="lazy"><div style="min-width:0"><span>' + (winnerIds[e.userId] ? '🏆 ' : '') + esc(e.username) + '</span>' +
+      (e.eligible ? '<div class="bd hide-sm">' + esc(breakdown(e)) + '</div>' : '<div class="reason">' + esc(e.reason) + '</div>') + '</div></div></td>' +
+      '<td class="num hide-sm">' + e.breakdown.invites + '</td>' +
+      '<td class="num"><strong>' + e.entries + '</strong></td>' +
+      '<td class="num">' + share.toFixed(2) + '%<div class="bar"><i style="width:' + Math.min(100, share).toFixed(2) + '%"></i></div></td></tr>';
+  }).join('');
+}
+
+document.querySelectorAll('th[data-k]').forEach(function (th) {
+  th.addEventListener('click', function () {
+    var k = th.getAttribute('data-k');
+    sortDir = sortKey === k ? -sortDir : (k === 'username' ? 1 : -1);
+    sortKey = k;
+    render();
+  });
+});
+$('search').addEventListener('input', render);
+$('showout').addEventListener('change', render);
+$('updated').textContent = (D.status === 'active' ? 'Live snapshot, updated ' : 'Final results, ') + fmt(D.updatedAt) + ' · Giveaway ID ' + D.id;
+render();</script>
+</body>
+</html>
