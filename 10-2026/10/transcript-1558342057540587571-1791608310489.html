@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Transcript – #ticket-4icy</title>
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#313338;color:#dbdee1;font-family:'gg sans','Noto Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.375}
+a{color:#00aff4;text-decoration:none}
+.ch-topbar{display:flex;align-items:center;gap:12px;background:#2b2d31;padding:12px 20px;border-bottom:1px solid #1e1f22;position:sticky;top:0;z-index:10}
+.ch-topbar-icon{font-size:22px;color:#80848e}
+.ch-topbar-name{font-weight:700;font-size:16px;color:#f2f3f5}
+.ch-topbar-topic{font-size:13px;color:#80848e;margin-left:8px;padding-left:8px;border-left:1px solid #3f4147;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:#1e1f22;border-bottom:1px solid #1e1f22}
+.ch-info-cell{background:#2b2d31;padding:12px 20px}
+.ch-info-label{font-size:11px;font-weight:700;color:#80848e;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.ch-info-value{font-size:14px;color:#dbdee1}
+.ch-messages{padding:20px 0;overflow-wrap:anywhere}
+.ch-date-divider{display:flex;align-items:center;gap:8px;margin:20px 20px 8px;color:#80848e;font-size:12px;font-weight:600}
+.ch-date-divider::before,.ch-date-divider::after{content:'';flex:1;height:1px;background:#3f4147}
+.ch-msg-group{display:flex;gap:16px;padding:2px 20px;margin-top:16px}
+.ch-msg-group:hover,.ch-msg-cont:hover{background:#2e3035}
+.ch-msg-cont{display:flex;align-items:baseline;gap:16px;padding:1px 20px;padding-left:20px}
+.ch-ts-mini{font-size:11px;color:transparent;min-width:40px;text-align:right;flex-shrink:0}
+.ch-msg-cont:hover .ch-ts-mini{color:#80848e}
+.ch-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;margin-top:2px;cursor:pointer}
+.ch-msg-body{flex:1;min-width:0}
+.ch-msg-header{display:flex;align-items:baseline;gap:8px;margin-bottom:2px;flex-wrap:wrap}
+.ch-author{font-weight:600;font-size:15px;cursor:pointer}
+.ch-author:hover{text-decoration:underline}
+.ch-author.bot{color:#5865f2}
+.ch-author.staff{color:#57f287}
+.ch-author.owner,.ch-author.other{color:#f2f3f5}
+.ch-bot-badge{display:inline-block;background:#5865f2;color:#fff;font-size:10px;font-weight:500;padding:1px 4px;border-radius:3px;vertical-align:middle;margin-left:4px;line-height:1.4}
+.ch-ts{font-size:12px;color:#80848e}
+.ch-msg-text{color:#dbdee1;font-size:15px;line-height:1.4}
+.ch-empty{color:#80848e}
+.ch-quote{display:block;border-left:4px solid #4e5058;padding-left:8px}
+code{background:#2b2d31;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;font-size:13.5px;padding:.2em;border-radius:3px}
+pre{background:#2b2d31;border:1px solid #1e1f22;padding:8px;border-radius:4px;margin:6px 0;overflow-x:auto}
+pre code{background:transparent;padding:0}
+.ch-mention{background:rgba(88,101,242,.3);color:#c9cdfb;padding:0 3px;border-radius:3px;font-weight:500;cursor:pointer}
+.ch-mention:hover{background:#5865f2;color:#fff}
+.ch-embed{background:#2b2d31;border-left:4px solid #202225;border-radius:4px;padding:12px;margin-top:8px;max-width:520px}
+.ch-embed-title{font-weight:600;margin-bottom:4px;color:#f2f3f5}
+.ch-embed-desc{font-size:14px;margin-bottom:8px}
+.ch-embed-fields{display:flex;flex-wrap:wrap;gap:8px}
+.ch-embed-field{flex:1 1 100%}
+.ch-embed-field.inline{flex:1 1 calc(33% - 8px);min-width:150px}
+.ch-embed-field-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.ch-embed-field-value{font-size:13px}
+.ch-embed-footer{font-size:12px;color:#80848e;margin-top:8px}
+.ch-attachment{margin-top:8px}
+.ch-attachment img{max-width:min(400px,100%);max-height:300px;border-radius:4px}
+.ch-footer{padding:20px;text-align:center;font-size:12px;color:#80848e;border-top:1px solid #3f4147;margin-top:12px}
+.ch-footer strong{color:#dbdee1}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:100}
+.modal-overlay.open{display:flex}
+.modal-card{background:#232428;width:340px;border-radius:8px;box-shadow:0 8px 16px rgba(0,0,0,.24);overflow:hidden;position:relative}
+.modal-banner{height:105px;background:#5865f2}
+.modal-avatar-wrapper{position:absolute;top:60px;left:16px;background:#232428;padding:6px;border-radius:50%}
+.modal-avatar{width:80px;height:80px;border-radius:50%;background:#1e1f22;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;color:#fff}
+.modal-avatar img{width:100%;height:100%;display:none;object-fit:cover}
+.modal-content-p{padding:50px 16px 16px}
+.modal-username{font-size:20px;font-weight:700;color:#f2f3f5;word-break:break-all}
+.modal-tag{font-size:14px;color:#b5bac1;margin-bottom:12px}
+.modal-divider{height:1px;background:#3f4147;margin:12px 0}
+.modal-section h3{font-size:12px;font-weight:700;color:#f2f3f5;text-transform:uppercase;margin-bottom:6px}
+.modal-section p{font-size:14px}</style>
+</head>
+<body>
+  <div class="ch-topbar">
+    <span class="ch-topbar-icon">#</span>
+    <span class="ch-topbar-name">ticket-4icy</span>
+    <span class="ch-topbar-topic">💰 Purchase &mdash; Ticket transcript</span>
+  </div>
+  <div class="ch-info">
+    <div class="ch-info-cell"><div class="ch-info-label">Ticket Type</div><div class="ch-info-value">💰 Purchase</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">User</div><div class="ch-info-value">4icy</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Staff (Claim)</div><div class="ch-info-value">Handled by AI</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Closed By</div><div class="ch-info-value">kylorrr</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Opened</div><div class="ch-info-value">10/10/2026, 6:54:58 AM</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Closed</div><div class="ch-info-value">10/10/2026, 6:58:30 AM</div></div>
+  </div>
+  <div class="ch-messages">
+    <div class="ch-date-divider"><span>Saturday, October 10, 2026</span></div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Palm Support#1472" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/embed/avatars/2.png'); background-size: cover;" onclick="showModal('Palm Support', 'Palm Support#1472', '1558301659250040934', 'https://cdn.discordapp.com/embed/avatars/2.png', '#5865f2', 'P')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Palm Support', 'Palm Support#1472', '1558301659250040934', 'https://cdn.discordapp.com/embed/avatars/2.png', '#5865f2', 'P')">Palm Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/10/2026, 6:54:59 AM">06:54 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')">@4icy</span><div class="ch-embed" style="border-left-color: #00bfff"><div class="ch-embed-title">🎫  💰 Purchase</div><div class="ch-embed-desc">Welcome <span class="ch-mention" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')">@4icy</span>! Please describe your issue below, <strong>in any language</strong>.<br><br>🤖 Our <strong>AI assistant</strong> will reply right away and try to help you.<br>👥 If the AI cannot solve it, it will automatically call a <strong>Staff</strong> member.</div><div class="ch-embed-fields"><div class="ch-embed-field inline">
+          <div class="ch-embed-field-name">👤 User</div>
+          <div class="ch-embed-field-value"><span class="ch-mention" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')">@4icy</span></div>
+        </div><div class="ch-embed-field inline">
+          <div class="ch-embed-field-name">📂 Type</div>
+          <div class="ch-embed-field-value">💰 Purchase</div>
+        </div><div class="ch-embed-field inline">
+          <div class="ch-embed-field-name">📅 Opened</div>
+          <div class="ch-embed-field-value">&lt;t:1791608098:f&gt;</div>
+        </div></div></div></div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="4icy" style="background:#2196f3; background-image: url('https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128'); background-size: cover;" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')">4icy</span>
+              <span class="ch-ts" title="10/10/2026, 6:55:04 AM">06:55 AM</span>
+            </div>
+            <div class="ch-msg-text">ciao quanto costa?</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Palm Support#1472" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/embed/avatars/2.png'); background-size: cover;" onclick="showModal('Palm Support', 'Palm Support#1472', '1558301659250040934', 'https://cdn.discordapp.com/embed/avatars/2.png', '#5865f2', 'P')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Palm Support', 'Palm Support#1472', '1558301659250040934', 'https://cdn.discordapp.com/embed/avatars/2.png', '#5865f2', 'P')">Palm Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/10/2026, 6:55:34 AM">06:55 AM</span>
+            </div>
+            <div class="ch-msg-text">Ciao! Per darti informazioni precise sui prezzi, potresti dirmi di cosa stiamo parlando? Solitamente trovi i listini aggiornati nel canale #pricing. Oppure, se mi dici cosa cerchi, posso aiutarti a trovare il prezzo giusto.<br><br>---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> Hi, how much does it cost?<br><em>Bot answered:</em> Hello! To give you precise price information, could you tell me what we are talking about? Usually, you can find the updated price lists in the #pricing channel. Or, if you tell me what you are looking for, I can help you find the right price.</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="4icy" style="background:#2196f3; background-image: url('https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128'); background-size: cover;" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')">4icy</span>
+              <span class="ch-ts" title="10/10/2026, 6:56:02 AM">06:56 AM</span>
+            </div>
+            <div class="ch-msg-text">apposto grazie</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Palm Support#1472" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/embed/avatars/2.png'); background-size: cover;" onclick="showModal('Palm Support', 'Palm Support#1472', '1558301659250040934', 'https://cdn.discordapp.com/embed/avatars/2.png', '#5865f2', 'P')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Palm Support', 'Palm Support#1472', '1558301659250040934', 'https://cdn.discordapp.com/embed/avatars/2.png', '#5865f2', 'P')">Palm Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/10/2026, 6:57:04 AM">06:57 AM</span>
+            </div>
+            <div class="ch-msg-text">Piacere di esserti stato utile! Se hai altre domande, sono qui. Buona giornata!<br><br>---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> User asked for pricing info.<br><em>Bot answered:</em> Bot explained where to find it.</div>
+          </div>
+        </div>
+        <div class="ch-msg-cont">
+          <span class="ch-ts-mini" title="10/10/2026, 6:57:04 AM">06:57 AM</span>
+          <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('4icy', '4icy', '1043677410555596830', 'https://cdn.discordapp.com/avatars/1043677410555596830/1f66deb1a00360efd45c72f9b5cb94df.png?size=128', '#2196f3', '4')">@4icy</span><div class="ch-embed" style="border-left-color: #57f287"><div class="ch-embed-desc">✅ Close confirmed. Generating the transcript...</div></div></div>
+        </div>
+  </div>
+  <div class="ch-footer">
+    Transcript generated by <strong>Palm Support</strong> &mdash; 10/10/2026, 6:58:30 AM &mdash; 6 messages &mdash; ID: 1558342057540587571
+  </div>
+  <div id="user-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-card">
+      <div class="modal-banner"></div>
+      <div class="modal-avatar-wrapper"><div class="modal-avatar"><span id="modal-initial"></span><img id="modal-avatar-img" src="" alt=""></div></div>
+      <div class="modal-content-p">
+        <div class="modal-username" id="modal-username"></div>
+        <div class="modal-tag" id="modal-tag"></div>
+        <div class="modal-divider"></div>
+        <div class="modal-section"><h3>ID Discord</h3><p id="modal-id"></p></div>
+      </div>
+    </div>
+  </div>
+  <script>
+function showModal(username, tag, id, avatar, color, initial) {
+  document.getElementById('modal-username').innerText = username;
+  document.getElementById('modal-tag').innerText = tag;
+  document.getElementById('modal-id').innerText = id;
+  document.querySelector('.modal-banner').style.backgroundColor = color;
+  var img = document.getElementById('modal-avatar-img');
+  var initSpan = document.getElementById('modal-initial');
+  if (avatar) { img.src = avatar; img.style.display = 'block'; initSpan.style.display = 'none'; }
+  else { img.style.display = 'none'; initSpan.innerText = initial; initSpan.style.display = 'block'; document.querySelector('.modal-avatar').style.backgroundColor = color; }
+  document.getElementById('user-modal').classList.add('open');
+}
+function closeModal(e) {
+  if (e.target.id === 'user-modal') document.getElementById('user-modal').classList.remove('open');
+}</script>
+</body>
+</html>
