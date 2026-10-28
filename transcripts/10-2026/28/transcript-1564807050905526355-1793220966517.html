@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Transcript – #ticket-sloomwtf</title>
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#313338;color:#dbdee1;font-family:'gg sans','Noto Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.375}
+a{color:#00aff4;text-decoration:none}
+.ch-topbar{display:flex;align-items:center;gap:12px;background:#2b2d31;padding:12px 20px;border-bottom:1px solid #1e1f22;position:sticky;top:0;z-index:10}
+.ch-topbar-icon{font-size:22px;color:#80848e}
+.ch-topbar-name{font-weight:700;font-size:16px;color:#f2f3f5}
+.ch-topbar-topic{font-size:13px;color:#80848e;margin-left:8px;padding-left:8px;border-left:1px solid #3f4147;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:#1e1f22;border-bottom:1px solid #1e1f22}
+.ch-info-cell{background:#2b2d31;padding:12px 20px}
+.ch-info-label{font-size:11px;font-weight:700;color:#80848e;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.ch-info-value{font-size:14px;color:#dbdee1}
+.ch-messages{padding:20px 0;overflow-wrap:anywhere}
+.ch-date-divider{display:flex;align-items:center;gap:8px;margin:20px 20px 8px;color:#80848e;font-size:12px;font-weight:600}
+.ch-date-divider::before,.ch-date-divider::after{content:'';flex:1;height:1px;background:#3f4147}
+.ch-msg-group{display:flex;gap:16px;padding:2px 20px;margin-top:16px}
+.ch-msg-group:hover,.ch-msg-cont:hover{background:#2e3035}
+.ch-msg-cont{display:flex;align-items:baseline;gap:16px;padding:1px 20px;padding-left:20px}
+.ch-ts-mini{font-size:11px;color:transparent;min-width:40px;text-align:right;flex-shrink:0}
+.ch-msg-cont:hover .ch-ts-mini{color:#80848e}
+.ch-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;margin-top:2px;cursor:pointer}
+.ch-msg-body{flex:1;min-width:0}
+.ch-msg-header{display:flex;align-items:baseline;gap:8px;margin-bottom:2px;flex-wrap:wrap}
+.ch-author{font-weight:600;font-size:15px;cursor:pointer}
+.ch-author:hover{text-decoration:underline}
+.ch-author.bot{color:#5865f2}
+.ch-author.staff{color:#57f287}
+.ch-author.owner,.ch-author.other{color:#f2f3f5}
+.ch-bot-badge{display:inline-block;background:#5865f2;color:#fff;font-size:10px;font-weight:500;padding:1px 4px;border-radius:3px;vertical-align:middle;margin-left:4px;line-height:1.4}
+.ch-ts{font-size:12px;color:#80848e}
+.ch-msg-text{color:#dbdee1;font-size:15px;line-height:1.4}
+.ch-empty{color:#80848e}
+.ch-quote{display:block;border-left:4px solid #4e5058;padding-left:8px}
+code{background:#2b2d31;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;font-size:13.5px;padding:.2em;border-radius:3px}
+pre{background:#2b2d31;border:1px solid #1e1f22;padding:8px;border-radius:4px;margin:6px 0;overflow-x:auto}
+pre code{background:transparent;padding:0}
+.ch-mention{background:rgba(88,101,242,.3);color:#c9cdfb;padding:0 3px;border-radius:3px;font-weight:500;cursor:pointer}
+.ch-mention:hover{background:#5865f2;color:#fff}
+.ch-embed{background:#2b2d31;border-left:4px solid #202225;border-radius:4px;padding:12px;margin-top:8px;max-width:520px}
+.ch-embed-title{font-weight:600;margin-bottom:4px;color:#f2f3f5}
+.ch-embed-desc{font-size:14px;margin-bottom:8px}
+.ch-embed-fields{display:flex;flex-wrap:wrap;gap:8px}
+.ch-embed-field{flex:1 1 100%}
+.ch-embed-field.inline{flex:1 1 calc(33% - 8px);min-width:150px}
+.ch-embed-field-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.ch-embed-field-value{font-size:13px}
+.ch-embed-footer{font-size:12px;color:#80848e;margin-top:8px}
+.ch-attachment{margin-top:8px}
+.ch-attachment img{max-width:min(400px,100%);max-height:300px;border-radius:4px}
+.ch-footer{padding:20px;text-align:center;font-size:12px;color:#80848e;border-top:1px solid #3f4147;margin-top:12px}
+.ch-footer strong{color:#dbdee1}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:100}
+.modal-overlay.open{display:flex}
+.modal-card{background:#232428;width:340px;border-radius:8px;box-shadow:0 8px 16px rgba(0,0,0,.24);overflow:hidden;position:relative}
+.modal-banner{height:105px;background:#5865f2}
+.modal-avatar-wrapper{position:absolute;top:60px;left:16px;background:#232428;padding:6px;border-radius:50%}
+.modal-avatar{width:80px;height:80px;border-radius:50%;background:#1e1f22;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;color:#fff}
+.modal-avatar img{width:100%;height:100%;display:none;object-fit:cover}
+.modal-content-p{padding:50px 16px 16px}
+.modal-username{font-size:20px;font-weight:700;color:#f2f3f5;word-break:break-all}
+.modal-tag{font-size:14px;color:#b5bac1;margin-bottom:12px}
+.modal-divider{height:1px;background:#3f4147;margin:12px 0}
+.modal-section h3{font-size:12px;font-weight:700;color:#f2f3f5;text-transform:uppercase;margin-bottom:6px}
+.modal-section p{font-size:14px}</style>
+</head>
+<body>
+  <div class="ch-topbar">
+    <span class="ch-topbar-icon">#</span>
+    <span class="ch-topbar-name">ticket-sloomwtf</span>
+    <span class="ch-topbar-topic">🛠️ Support &mdash; Ticket transcript</span>
+  </div>
+  <div class="ch-info">
+    <div class="ch-info-cell"><div class="ch-info-label">Ticket Type</div><div class="ch-info-value">🛠️ Support</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">User</div><div class="ch-info-value">sloomwtf</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Staff (Claim)</div><div class="ch-info-value">kylorrr</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Closed By</div><div class="ch-info-value">kylorrr</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Opened</div><div class="ch-info-value">10/28/2026, 2:04:34 AM</div></div>
+    <div class="ch-info-cell"><div class="ch-info-label">Closed</div><div class="ch-info-value">10/28/2026, 9:56:06 PM</div></div>
+  </div>
+  <div class="ch-messages">
+    <div class="ch-date-divider"><span>Wednesday, October 28, 2026</span></div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:04:34 AM">02:04 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">@sloomwtf</span><div class="ch-embed" style="border-left-color: #00bfff"><div class="ch-embed-title">🎫  🛠️ Support</div><div class="ch-embed-desc">Welcome <span class="ch-mention" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">@sloomwtf</span>! Please describe your issue below, <strong>in any language</strong>.<br><br>🤖 Our <strong>AI assistant</strong> will reply right away and try to help you.<br>👥 If the AI cannot solve it, it will automatically call a <strong>Staff</strong> member.</div><div class="ch-embed-fields"><div class="ch-embed-field inline">
+          <div class="ch-embed-field-name">👤 User</div>
+          <div class="ch-embed-field-value"><span class="ch-mention" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">@sloomwtf</span></div>
+        </div><div class="ch-embed-field inline">
+          <div class="ch-embed-field-name">📂 Type</div>
+          <div class="ch-embed-field-value">🛠️ Support</div>
+        </div><div class="ch-embed-field inline">
+          <div class="ch-embed-field-name">📅 Opened</div>
+          <div class="ch-embed-field-value">&lt;t:1793149474:f&gt;</div>
+        </div></div></div></div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 2:04:37 AM">02:04 AM</span>
+            </div>
+            <div class="ch-msg-text">hello</div>
+          </div>
+        </div>
+        <div class="ch-msg-cont">
+          <span class="ch-ts-mini" title="10/28/2026, 2:04:52 AM">02:04 AM</span>
+          <div class="ch-msg-text">how does it work? and how can i buy?</div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:05:17 AM">02:05 AM</span>
+            </div>
+            <div class="ch-msg-text">Hello! How can I assist you today? Feel free to ask about our products, services, or how to use the server. You can also check our catalog with <code>/products</code> or check an order status with <code>/order</code>.<br><br>---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> User greeted the bot.<br><em>Bot answered:</em> Hello! How can I assist you today? Feel free to ask about our products, services, or how to use the server. You can also check our catalog with <code>/products</code> or check an order status with <code>/order</code>.</div>
+          </div>
+        </div>
+        <div class="ch-msg-cont">
+          <span class="ch-ts-mini" title="10/28/2026, 2:05:36 AM">02:05 AM</span>
+          <div class="ch-msg-text">Hello! We currently offer a <strong>Fortnite External</strong> service. This provides licenses for various durations:<br><br>*   <strong>1 Day:</strong> $4.99<br>*   <strong>3 Days:</strong> $7.99<br>*   <strong>1 Week:</strong> $18.99<br>*   <strong>1 Month:</strong> $29.90<br><br>To purchase, please visit our website at <strong>[aevor.cc](https://aevor.cc)</strong> and select your desired plan.<br><br>---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> How does it work and how can I buy?<br><em>Bot answered:</em> Explained Fortnite External service, listed plans/prices, and directed user to the website.</div>
+        </div>
+        <div class="ch-msg-cont">
+          <span class="ch-ts-mini" title="10/28/2026, 2:06:36 AM">02:06 AM</span>
+          <div class="ch-msg-text"><div class="ch-embed" style="border-left-color: #5865f2"><div class="ch-embed-title">🛒 Website Products &amp; Pricing</div><div class="ch-embed-desc">Live pricing and license plans available on [aevor.cc](https://aevor.cc):</div><div class="ch-embed-fields"><div class="ch-embed-field ">
+          <div class="ch-embed-field-name">✨ Fortnite External</div>
+          <div class="ch-embed-field-value"><em>Fortnite External · licenses for 1 day, 3 days, 1 week and 1 month.</em><br>• <strong>1 giorno</strong>: <strong>$4.99</strong> USD<br>• <strong>3 giorni</strong>: <strong>$7.99</strong> USD<br>• <strong>1 settimana</strong>: <strong>$18.99</strong> USD<br>• <strong>1 mese</strong>: <strong>$29.9</strong> USD</div>
+        </div></div><div class="ch-embed-footer">Connected to aevor.cc backend</div></div></div>
+        </div>
+        <div class="ch-msg-cont">
+          <span class="ch-ts-mini" title="10/28/2026, 2:07:41 AM">02:07 AM</span>
+          <div class="ch-msg-text"><div class="ch-embed" style="border-left-color: #57f287"><div class="ch-embed-desc">✅ <span class="ch-mention" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">@kylorrr</span> has claimed this ticket.<br>Hello <span class="ch-mention" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">@sloomwtf</span>, your issue is in good hands! The AI will no longer reply.</div></div></div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 2:08:12 AM">02:08 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> digli al ragazzo quali sono i prodotti che vendiamo</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 2:08:43 AM">02:08 AM</span>
+            </div>
+            <div class="ch-msg-text">come ti chiami?</div>
+          </div>
+        </div>
+        <div class="ch-msg-cont">
+          <span class="ch-ts-mini" title="10/28/2026, 2:08:52 AM">02:08 AM</span>
+          <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> o</div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:09:03 AM">02:09 AM</span>
+            </div>
+            <div class="ch-msg-text"><div class="ch-embed" style="border-left-color: #faa61a"><div class="ch-embed-desc">🔓 <span class="ch-mention" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">@kylorrr</span> has released the ticket.<br>🤖 The AI resumes replying; another staff member can claim it at any time.</div></div></div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 2:09:13 AM">02:09 AM</span>
+            </div>
+            <div class="ch-msg-text">ciao</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 2:09:16 AM">02:09 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> quindi?</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:09:35 AM">02:09 AM</span>
+            </div>
+            <div class="ch-msg-text">Ciao! Ti spiego cosa vendiamo.<br><br>Attualmente vendiamo solo il <strong>Fortnite External</strong>.<br>Offriamo licenze per diverse durate:<br>*   <strong>1 giorno:</strong> 4.99 USD<br>*   <strong>3 giorni:</strong> 7.99 USD<br>*   <strong>1 settimana:</strong> 18.99 USD<br>*   <strong>1 mese:</strong> 29.90 USD<br><br>Per acquistare, devi visitare il nostro sito web: <strong>[aevor.cc](https://aevor.cc)</strong>.<br><br>---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> &quot;quindi?&quot; (asking for product info)<br><em>Bot answered:</em> Explained the Fortnite External product list and website.</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 2:10:39 AM">02:10 AM</span>
+            </div>
+            <div class="ch-msg-text">完美，告诉我网站是哪个</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 2:11:07 AM">02:11 AM</span>
+            </div>
+            <div class="ch-msg-text">完美，告诉我网站是哪个</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:11:18 AM">02:11 AM</span>
+            </div>
+            <div class="ch-msg-text">Il sito web è <strong>[aevor.cc](https://aevor.cc)</strong>.<br><br>---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> Perfect, tell me which website it is.<br><em>Bot answered:</em> The website is [aevor.cc].</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 2:11:39 AM">02:11 AM</span>
+            </div>
+            <div class="ch-msg-text">完美，告诉我网站是哪个</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:11:49 AM">02:11 AM</span>
+            </div>
+            <div class="ch-msg-text">我们的网站是 [aevor.cc](https://aevor.cc)。<br><br>---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> Tell me which website it is.<br><em>Bot answered:</em> Our website is [aevor.cc](https://aevor.cc).<div class="ch-embed" style="border-left-color: #0b0d12"><div class="ch-embed-title">aevor.cc — Licenses and software</div><div class="ch-embed-desc">Aevor.cc — Digital marketplace for gamers. Explore software and licenses and manage purchases in one account.</div></div></div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 2:12:47 AM">02:12 AM</span>
+            </div>
+            <div class="ch-msg-text">fammi il riassunto della chat <span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span></div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="svennn221" style="background:#9c27b0; background-image: url('https://cdn.discordapp.com/avatars/1121108846283341824/cb2c808e7a25ca45e26d373f2ee3af5a.png?size=128'); background-size: cover;" onclick="showModal('svennn221', 'svennn221', '1121108846283341824', 'https://cdn.discordapp.com/avatars/1121108846283341824/cb2c808e7a25ca45e26d373f2ee3af5a.png?size=128', '#9c27b0', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author other" title="Click for user info" onclick="showModal('svennn221', 'svennn221', '1121108846283341824', 'https://cdn.discordapp.com/avatars/1121108846283341824/cb2c808e7a25ca45e26d373f2ee3af5a.png?size=128', '#9c27b0', 'S')">svennn221</span>
+              <span class="ch-ts" title="10/28/2026, 2:20:32 AM">02:20 AM</span>
+            </div>
+            <div class="ch-msg-text">stai zitto <span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> sei un down</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 2:21:00 AM">02:21 AM</span>
+            </div>
+            <div class="ch-msg-text">stai zitto <span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span>  sei un down</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:21:09 AM">02:21 AM</span>
+            </div>
+            <div class="ch-msg-text">⚠️ The AI assistant is currently unavailable. A staff member will assist you as soon as possible!</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 2:22:32 AM">02:22 AM</span>
+            </div>
+            <div class="ch-msg-text">stai zitto <span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span>  sei un down</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 2:30:21 AM">02:30 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> fammi un riassunto del ticket</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:30:26 AM">02:30 AM</span>
+            </div>
+            <div class="ch-msg-text"><div class="ch-embed" style="border-left-color: #57f287"><div class="ch-embed-desc">✅ <span class="ch-mention" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">@kylorrr</span> has claimed this ticket.<br>Hello <span class="ch-mention" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">@sloomwtf</span>, your issue is in good hands! The AI will no longer reply.</div></div></div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 2:40:42 AM">02:40 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> send price list&#039;</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 2:40:51 AM">02:40 AM</span>
+            </div>
+            <div class="ch-msg-text">⚠️ The AI assistant is currently unavailable. A staff member will assist you as soon as possible!</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 3:49:28 AM">03:49 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> piccolo recap</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 3:50:02 AM">03:50 AM</span>
+            </div>
+            <div class="ch-msg-text">⚠️ The AI assistant is currently unavailable. A staff member will assist you as soon as possible!</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 3:54:23 AM">03:54 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> fai il recap</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 3:55:35 AM">03:55 AM</span>
+            </div>
+            <div class="ch-msg-text">⚠️ The AI assistant is currently unavailable. A staff member will assist you as soon as possible!</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 4:02:02 AM">04:02 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> fai il recap</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="sloomwtf" style="background:#ff9800; background-image: url('https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128'); background-size: cover;" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author owner" title="Click for user info" onclick="showModal('sloomwtf', 'sloomwtf', '1563445534428106867', 'https://cdn.discordapp.com/avatars/1563445534428106867/858f4e0c8e3ccb19d099a68c8258bbe2.png?size=128', '#ff9800', 'S')">sloomwtf</span>
+              <span class="ch-ts" title="10/28/2026, 4:09:47 AM">04:09 AM</span>
+            </div>
+            <div class="ch-msg-text">nope</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 4:10:58 AM">04:10 AM</span>
+            </div>
+            <div class="ch-msg-text"><span class="ch-mention" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#ff9800', 'A')">@Aevor Support</span> come va</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="Aevor Support#3490" style="background:#5865f2; background-image: url('https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128'); background-size: cover;" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author bot" title="Click for user info" onclick="showModal('Aevor Support', 'Aevor Support#3490', '1564795287686484020', 'https://cdn.discordapp.com/avatars/1564795287686484020/3984a7713bdad513c9d55bf38bc94e4b.png?size=128', '#5865f2', 'A')">Aevor Support<span class="ch-bot-badge">BOT</span></span>
+              <span class="ch-ts" title="10/28/2026, 4:11:13 AM">04:11 AM</span>
+            </div>
+            <div class="ch-msg-text">---<br><strong>🕵️ Staff Notes:</strong><br><em>User asked:</em> Staff member asked &quot;come va&quot; (how are you)<br><em>Bot answered:</em> I&#039;m functioning well, thank you for asking. How can I assist you today?</div>
+          </div>
+        </div>
+        <div class="ch-msg-group">
+          <div class="ch-avatar" title="kylorrr" style="background:#f44336; background-image: url('https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128'); background-size: cover;" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')"></div>
+          <div class="ch-msg-body">
+            <div class="ch-msg-header">
+              <span class="ch-author staff" title="Click for user info" onclick="showModal('kylorrr', 'kylorrr', '1211362709602308248', 'https://cdn.discordapp.com/avatars/1211362709602308248/60f3a15eb23fc73b8f47093f30b2a533.png?size=128', '#f44336', 'K')">kylorrr</span>
+              <span class="ch-ts" title="10/28/2026, 4:11:32 AM">04:11 AM</span>
+            </div>
+            <div class="ch-msg-text">fammi il recap della chat</div>
+          </div>
+        </div>
+  </div>
+  <div class="ch-footer">
+    Transcript generated by <strong>Aevor Support</strong> &mdash; 10/28/2026, 9:56:06 PM &mdash; 37 messages &mdash; ID: 1564807050905526355
+  </div>
+  <div id="user-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-card">
+      <div class="modal-banner"></div>
+      <div class="modal-avatar-wrapper"><div class="modal-avatar"><span id="modal-initial"></span><img id="modal-avatar-img" src="" alt=""></div></div>
+      <div class="modal-content-p">
+        <div class="modal-username" id="modal-username"></div>
+        <div class="modal-tag" id="modal-tag"></div>
+        <div class="modal-divider"></div>
+        <div class="modal-section"><h3>ID Discord</h3><p id="modal-id"></p></div>
+      </div>
+    </div>
+  </div>
+  <script>
+function showModal(username, tag, id, avatar, color, initial) {
+  document.getElementById('modal-username').innerText = username;
+  document.getElementById('modal-tag').innerText = tag;
+  document.getElementById('modal-id').innerText = id;
+  document.querySelector('.modal-banner').style.backgroundColor = color;
+  var img = document.getElementById('modal-avatar-img');
+  var initSpan = document.getElementById('modal-initial');
+  if (avatar) { img.src = avatar; img.style.display = 'block'; initSpan.style.display = 'none'; }
+  else { img.style.display = 'none'; initSpan.innerText = initial; initSpan.style.display = 'block'; document.querySelector('.modal-avatar').style.backgroundColor = color; }
+  document.getElementById('user-modal').classList.add('open');
+}
+function closeModal(e) {
+  if (e.target.id === 'user-modal') document.getElementById('user-modal').classList.remove('open');
+}</script>
+</body>
+</html>
